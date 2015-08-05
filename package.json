@@ -1,0 +1,22 @@
+{
+  "name": "livecoding",
+  "version": "0.0.1",
+  "description": "Frontend live coding template for me.",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "",
+  "license": "ISC",
+  "dependencies": {
+    "browser-sync": "^2.8.2",
+    "gulp": "^3.9.0",
+    "gulp-csscomb": "^3.0.6",
+    "gulp-htmlcomb": "0.0.1",
+    "gulp-pleeease": "^1.2.0",
+    "gulp-sass": "^2.0.4",
+    "gulp-typescript": "^2.8.0",
+    "gulp-watch": "^4.3.4",
+    "run-sequence": "^1.1.2"
+  }
+}
