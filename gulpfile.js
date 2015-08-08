@@ -1,6 +1,7 @@
 var gulp = require('gulp');
 var rseq = require('run-sequence');
 var ts = require('gulp-typescript');
+var ejs = require('gulp-ejs');
 var htmlcomb = require('gulp-htmlcomb');
 var sass = require('gulp-sass');
 var csscomb = require('gulp-csscomb');
@@ -15,14 +16,14 @@ gulp.task('default', [
 ]);
 
 gulp.task('build', [
-  'html:build',
+  'ejs:build',
   'ts:build',
   'sass:build',
   'bower'
 ]);
 
 gulp.task('watch', [
-  'html:watch',
+  'ejs:watch',
   'ts:watch',
   'sass:watch'
 ]);
@@ -31,7 +32,7 @@ gulp.task('webserver', function () {
   webserver({
     server: {
       baseDir: 'dist/',
-      index: 'layout/common.html'
+      index: 'layouts/common.html'
     }
   });
 });
@@ -40,17 +41,21 @@ gulp.task('webserver:reload', function () {
   webserver.reload();
 });
 
-gulp.task('html:build', function () {
-  gulp.src(['src/views/**/*.html'])
+gulp.task('ejs:build', function () {
+  gulp.src([
+    'src/views/**/*.ejs',
+    '!src/views/**/partials/**/*.ejs'
+  ])
+    .pipe(ejs())
     .pipe(gulp.dest('dist/'))
   ;
 });
 
-gulp.task('html:watch', function () {
-  watch(['src/views/**/*.html'], function () {
+gulp.task('ejs:watch', function () {
+  watch(['src/views/**/*.ejs'], function () {
     gulp.start('html:build');
   });
-  watch(['dist/**/*.html'], function () {
+  watch(['dist/**/*.ejs'], function () {
     gulp.start('webserver:reload');
   });
 });

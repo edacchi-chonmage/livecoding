@@ -12,6 +12,7 @@
     "browser-sync": "^2.8.2",
     "gulp": "^3.9.0",
     "gulp-csscomb": "^3.0.6",
+    "gulp-ejs": "^1.1.1",
     "gulp-htmlcomb": "0.0.1",
     "gulp-pleeease": "^1.2.0",
     "gulp-sass": "^2.0.4",

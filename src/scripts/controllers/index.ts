@@ -15,7 +15,7 @@ module app.controllers {
         $stateProvider
           .state('index', {
             url: '/',
-            templateUrl: 'index.html',
+            templateUrl: 'pages/index.html',
             title: 'foo title'
           })
         ;
